@@ -24,7 +24,7 @@
  *      x bits indices string position in diagram.
 **/
 use super::generic::{GenericDiagram, GenericResult};
-use super::macros::ImpDeref;
+use super::macros::{ImpDeref, ImpFrom};
 use bitcoin::hashes::{sha256, Hash};
 
 /// Simple Diagram
@@ -48,6 +48,7 @@ use bitcoin::hashes::{sha256, Hash};
 #[derive(Debug, Default, Clone, PartialEq)]
 pub struct SimpleDiagram(pub [[Option<char>; 7]; 7]);
 ImpDeref!(SimpleDiagram, [[Option<char>; 7]; 7]);
+ImpFrom!(SimpleDiagram, [[Option<char>; 7]; 7]);
 
 impl GenericDiagram<7, 7> for SimpleDiagram {
     type Item = char;

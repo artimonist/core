@@ -26,9 +26,8 @@
  *      others x bits indices string position in diagram.
 **/
 
-use crate::macros::ImpDeref;
-
 use super::generic::{GenericDiagram, GenericResult};
+use crate::macros::{ImpDeref, ImpFrom};
 use bitcoin::hashes::{sha256, Hash};
 
 /// Complex Diagram
@@ -39,6 +38,7 @@ use bitcoin::hashes::{sha256, Hash};
 #[derive(Debug, Default, Clone, PartialEq)]
 pub struct ComplexDiagram(pub [[Option<String>; 7]; 7]);
 ImpDeref!(ComplexDiagram, [[Option<String>; 7]; 7]);
+ImpFrom!(ComplexDiagram, [[Option<String>; 7]; 7]);
 
 impl GenericDiagram<7, 7> for ComplexDiagram {
     type Item = String;
